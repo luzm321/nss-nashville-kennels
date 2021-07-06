@@ -4,6 +4,7 @@ import { AnimalCard } from "./animal/AnimalCard.js"
 import { EmployeeCard } from "./employee/Employee.js"
 import { LocationCard } from "./location/Location.js"
 import { CustomerCard } from "./customer/Customer.js"
+import { PropsAndState } from "./PropsAndState.js"
 import "./animal/Animal.css"
 
 
@@ -19,6 +20,7 @@ export const Kennel = () => (
             <div>500 Puppy Way</div>
         </address>
 
+        <PropsAndState yourName={"Luz Angelique"} />
         <h2>Animals</h2>
         <article className="animals">
             <AnimalCard />
