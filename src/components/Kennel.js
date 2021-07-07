@@ -1,7 +1,7 @@
 //Kennel is a container component. It renders no HTML itself. It simply contains other components that are responsible for the presentation
 // and behavior of the application. This Kennel component contains two different kinds of child components which are NavBar and ApplicationViews: 
 //NavBar: This is a Presentation Component. Directly expresses HTML.
-//ApplicationViews: A Controller/Rounter Component whose only responsibility is to control the behavior of the system and maps URLs to components.
+//ApplicationViews: A Controller/Router Component whose only responsibility is to control the behavior of the system and maps URLs to components.
 
 import React from "react"
 import "./Kennel.css"
@@ -36,7 +36,7 @@ export const Kennel = () => (
 //         <h2>Nashville Kennels</h2>
 //         <small>Loving care when you're not there.</small>
 
-//         <address>
+//         <address className="address">
 //             <div>Visit Us at the Nashville North Location</div>
 //             <div>500 Puppy Way</div>
 //         </address>
