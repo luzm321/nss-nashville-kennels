@@ -5,8 +5,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from "react-router-dom"
-import './index.css';
 import { Kennel } from "./components/Kennel.js";
+import './index.css';
 // import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
