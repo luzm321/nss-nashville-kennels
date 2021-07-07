@@ -5,10 +5,13 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { Home } from "./Home"
-import { AnimalCard } from "./animal/AnimalCard.js"
+// import { AnimalCard } from "./animal/AnimalCard.js"
 import { EmployeeCard } from "./employee/Employee.js";
 import { LocationCard } from "./location/Location.js";
 import { CustomerCard } from "./customer/Customer.js";
+import { AnimalProvider } from "./animal/AnimalProvider.js"
+import { AnimalList } from "./animal/AnimalList.js"
+
 
 //exact is needed on the first route for Home, otherwise it will also match the other routes, and the Home will render for every route.
 //The <Link/> and the <Route/> JSX elements are complementary to each other. If a new Link element is added in the app on the NavBar component
@@ -23,9 +26,15 @@ export const ApplicationViews = () => {
             </Route>
 
             {/* Render the animal list when http://localhost:3000/animals */}
-            <Route path="/animal">
+            {/* <Route path="/animal">
                 <AnimalCard />
-            </Route>
+            </Route> */}
+
+            <AnimalProvider>
+                <Route exact path="/animal">
+                    <AnimalList />
+                </Route>
+            </AnimalProvider>
 
             <Route path="/employee">
                 <EmployeeCard />
