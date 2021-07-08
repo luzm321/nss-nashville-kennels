@@ -2,15 +2,21 @@
 //ApplicationViews defines how the app will respond when the URL matches in the to attributes in each Link component from the NavBar component. 
 //When a user clicks on one of the hyperlinks in the navigation bar, the code from this component dictates which component should be rendered.
 
-import React from "react"
-import { Route } from "react-router-dom"
-import { Home } from "./Home"
+import React from "react";
+import { Route } from "react-router-dom";
+import { Home } from "./Home.js";
 // import { AnimalCard } from "./animal/AnimalCard.js"
-import { EmployeeCard } from "./employee/Employee.js";
-import { LocationCard } from "./location/Location.js";
-import { CustomerCard } from "./customer/Customer.js";
-import { AnimalProvider } from "./animal/AnimalProvider.js"
-import { AnimalList } from "./animal/AnimalList.js"
+// import { EmployeeCard } from "./employee/Employee.js";
+// import { LocationCard } from "./location/Location.js";
+// import { CustomerCard } from "./customer/Customer.js";
+import { AnimalProvider } from "./animal/AnimalProvider.js";
+import { AnimalList } from "./animal/AnimalList.js";
+import { CustomerProvider } from "./customer/CustomerProvider.js";
+import { CustomerList } from "./customer/CustomerList.js";
+import { EmployeeProvider } from "./employee/EmployeeProvider.js";
+import { EmployeeList } from "./employee/EmployeeList.js";
+import { LocationProvider } from "./location/LocationProvider.js";
+import { LocationList } from "./location/LocationList.js";
 
 
 //exact is needed on the first route for Home, otherwise it will also match the other routes, and the Home will render for every route.
@@ -36,17 +42,23 @@ export const ApplicationViews = () => {
                 </Route>
             </AnimalProvider>
 
-            <Route path="/employee">
-                <EmployeeCard />
-            </Route>
+            <EmployeeProvider>
+                <Route exact path="/employee">
+                    <EmployeeList />
+                </Route>
+            </EmployeeProvider>
 
-            <Route path="/location">
-                <LocationCard />
-            </Route>
+            <LocationProvider>
+                <Route exact path="/location">
+                    <LocationList />
+                </Route>
+            </LocationProvider>
 
-            <Route path="/customer">
-                <CustomerCard />
-            </Route>
+            <CustomerProvider>
+                <Route exact path="/customer">
+                    <CustomerList />
+                </Route>
+            </CustomerProvider>
         </>
     )
 }
