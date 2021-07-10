@@ -1,5 +1,6 @@
 import React from "react";
 import { PropsAndState } from './PropsAndState.js'
+import "./Home.css";
 // import {AnimalCard} from "./animal/AnimalCard.js"
 // import { EmployeeCard } from "./employee/Employee.js";
 // import { LocationCard } from "./location/Location.js";
@@ -7,6 +8,7 @@ import { PropsAndState } from './PropsAndState.js'
 
 export const Home = () => (
     <>
+        <div class="home_div">
         <h2>Nashville Kennels</h2>
         <small>Loving care when you're not there.</small>
 
@@ -44,5 +46,6 @@ export const Home = () => (
             <CustomerCard customerName="Matthew Lang" customerLocation="456 Coding Street" />
             <CustomerCard customerName="Daniel Lee" customerLocation="3000 Developer Court"/>
         </article>      */}
+        </div>
     </>
 )
