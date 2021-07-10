@@ -3,8 +3,26 @@
     flex-wrap: nowrap;
     justify-content: left;
 }
-
+  
 .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
+    text-align: center;
+}
+  
+.active {
+    background-color: rgb(65, 187, 224);
+    border-radius: 100px;
+}
+
+.active:hover {
+    background-color: rgb(195, 204, 211);
+}
+
+.navbar__link {
+    color: black;
+}
+
+.navbar__link:hover {
+    color: rgb(228, 133, 133);
 }
