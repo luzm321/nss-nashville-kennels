@@ -42,7 +42,7 @@ export const AnimalList = () => {
     <>
       <h2>Animals</h2>
 		    <button onClick={() => {history.push("/animal/create")}}>
-            Add Animal
+            Make Reservation
         </button>
 
       <div className="animals">
@@ -52,9 +52,10 @@ export const AnimalList = () => {
         //The key and animal arguments become properties on an object that gets passed as an argument.
           animals.map(animal => {
           //Use the .find() method on both the customers array and the locations array to find the object representation that each foreign key is referencing.
-            const owner = customers.find(customer => customer.id === animal.customerId)
-            const clinic = locations.find(location => location.id === animal.locationId)
-            return <AnimalCard key={animal.id} location={clinic} customer={owner} animal={animal} />
+            // const owner = customers.find(customer => customer.id === animal.customerId)
+            // const clinic = locations.find(location => location.id === animal.locationId)
+            // return <AnimalCard key={animal.id} location={clinic} customer={owner} animal={animal} />
+            return <AnimalCard key={animal.id} animal={animal} />
           })
         }
       </div>
