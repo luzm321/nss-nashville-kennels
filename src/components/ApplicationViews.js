@@ -11,6 +11,7 @@ import { Home } from "./Home.js";
 // import { CustomerCard } from "./customer/Customer.js";
 import { AnimalProvider } from "./animal/AnimalProvider.js";
 import { AnimalList } from "./animal/AnimalList.js";
+import { AnimalForm } from "./animal/AnimalForm.js";
 import { CustomerProvider } from "./customer/CustomerProvider.js";
 import { CustomerList } from "./customer/CustomerList.js";
 import { EmployeeProvider } from "./employee/EmployeeProvider.js";
@@ -37,13 +38,14 @@ export const ApplicationViews = () => {
             </Route> */}
             
             <AnimalProvider>
-                <Route exact path="/animal">
-                    <AnimalList />
-                </Route>
                 {/* Creating the new route that will respond when the button click changes the URL to /animals/create. */}
                 <LocationProvider>
                     <CustomerProvider>
-                        <Route exact path="/animals/create">
+                        <Route exact path="/animal">
+                            <AnimalList />
+                        </Route>
+
+                        <Route exact path="/animal/create">
                             <AnimalForm />
                         </Route>
                     </CustomerProvider>

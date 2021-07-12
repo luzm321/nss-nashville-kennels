@@ -41,7 +41,7 @@ export const AnimalList = () => {
   return (
     <>
       <h2>Animals</h2>
-		    <button onClick={() => {history.push("/animals/create")}}>
+		    <button onClick={() => {history.push("/animal/create")}}>
             Add Animal
         </button>
 
@@ -61,3 +61,12 @@ export const AnimalList = () => {
     </>
   )
 }
+
+// The 'flow' for adding a new animal:
+// 1) click the Add Animal btn
+// 2) Change the url to `animals/create` with 'history'
+// 3) That triggers the router to match the URL to know which comp to render
+// 4) The animal form is rendered
+// 5) The user fills out the FormData, causing the initial 'animal' state to be updated
+// 6) The user clicks 'save animal' and we call 'addAnimal', passing it the new object we created from state
+// 7) After the save and the update of animals state, redirect to AnimalList using history
