@@ -22,6 +22,7 @@ import { EmployeeForm } from "./employee/EmployeeForm.js";
 import { LocationForm } from "./location/LocationForm.js";
 import { CustomerForm } from "./customer/CustomerForm.js";
 import { AnimalDetail } from "./animal/AnimalDetail.js";
+import { EmployeeDetail } from "./employee/EmployeeDetail.js";
 
 
 
@@ -50,7 +51,10 @@ export const ApplicationViews = () => {
                         <Route exact path="/animal">
                             <AnimalList />
                         </Route>
-
+    
+    {/* The dynamic route component below matches a pattern. In the route that renders AnimalDetail, animalId is a parameter passed on the URL. */}
+    {/* :animalId(\d+) is at the end of the URL. If the URL is http://localhost:3000/animal/detail/1, the value of 1 will be stored in a variable
+     named animalId. The variable can then be used inside AnimalDetail. */}
                         <Route exact path="/animal/detail/:animalId(\d+)">
                             <AnimalDetail />
                         </Route>
@@ -66,6 +70,10 @@ export const ApplicationViews = () => {
                 <LocationProvider>
                         <Route exact path="/employee">
                             <EmployeeList />
+                        </Route>
+
+                        <Route exact path="/employee/detail/:employeeId(\d+)">
+                            <EmployeeDetail />
                         </Route>
 
                         <Route exact path="/employee/create">
