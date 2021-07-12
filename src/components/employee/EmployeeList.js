@@ -1,19 +1,20 @@
 import React, { useContext, useEffect } from "react";
 import { useHistory } from 'react-router-dom';
 import { EmployeeContext } from "./EmployeeProvider.js";
-import { LocationContext } from "../location/LocationProvider.js";
+// import { LocationContext } from "../location/LocationProvider.js";
 import { EmployeeCard } from "./Employee.js";
 
 
 export const EmployeeList = () => {
  
   const { employees, getEmployees } = useContext(EmployeeContext)
-  const { locations, getLocations } = useContext(LocationContext)
+  // const { locations, getLocations } = useContext(LocationContext)
 
   useEffect(() => {
     console.log("EmployeeList: useEffect - getEmployees, Initial render before data")
-    getLocations()
-      .then(getEmployees)
+    // getLocations()
+    //   .then(getEmployees)
+    getEmployees()
   }, [])
 
   const history = useHistory()
@@ -30,8 +31,9 @@ export const EmployeeList = () => {
         {/* <h2>Employees</h2> */}
         {
           employees.map(employee => {
-            const location = locations.find(location => location.id === employee.locationId)
-            return <EmployeeCard key={employee.id} employee={employee} location={location} />
+            // const location = locations.find(location => location.id === employee.locationId)
+            // return <EmployeeCard key={employee.id} employee={employee} location={location} />
+            return <EmployeeCard key={employee.id} employee={employee} />
           })
         }
       </div>

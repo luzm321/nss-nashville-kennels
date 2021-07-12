@@ -4,16 +4,16 @@
 import React, { useContext, useEffect } from "react";
 import { useHistory } from 'react-router-dom';
 import { AnimalContext } from "./AnimalProvider.js";
-import { LocationContext } from "../location/LocationProvider.js";
-import { CustomerContext } from "../customer/CustomerProvider.js";
+// import { LocationContext } from "../location/LocationProvider.js";
+// import { CustomerContext } from "../customer/CustomerProvider.js";
 import { AnimalCard } from "./AnimalCard.js";
 // import "./Animal.css"
 
 export const AnimalList = () => {
   // This state(animals) changes when `getAnimals()` is invoked below
   const { animals, getAnimals } = useContext(AnimalContext)
-  const { locations, getLocations } = useContext(LocationContext)
-  const { customers, getCustomers } = useContext(CustomerContext)
+  // const { locations, getLocations } = useContext(LocationContext)
+  // const { customers, getCustomers } = useContext(CustomerContext)
 
   //The useEffect hook allows the component to reach out into the world for anything that cannot be handled during render. 
   //In this case, it is the API call for the animals. The empty array bracket is the dependency array. After the return, useEffect is 
@@ -22,9 +22,10 @@ export const AnimalList = () => {
   //you're watching to see if it changes.
   useEffect(() => {
       console.log("AnimalList: useEffect - getAnimals, Initial render before data")
-      getLocations()
-      .then(getCustomers)
-      .then(getAnimals)
+      // getLocations()
+      // .then(getCustomers)
+      // .then(getAnimals)
+      getAnimals()
   }, [])
 
   //2nd useEffect example code below is what happens after the the animals array gets initialized and has the animals data inside it and similar to

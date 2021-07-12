@@ -11,7 +11,7 @@ export const EmployeeProvider = (props) => {
         return fetch("http://localhost:8088/employees?_expand=location")
         .then(res => res.json())
         .then(setEmployees)
-    }
+    };
 
     const addEmployee = employeeObj => {
         return fetch("http://localhost:8088/employees", {
@@ -22,13 +22,19 @@ export const EmployeeProvider = (props) => {
             body: JSON.stringify(employeeObj)
         })
         .then(getEmployees)
-    }
+    };
+
+    //Method below allows any component to get a single employee by its id, but with the location object embedded inside the response:
+    const getEmployeeById = (id) => {
+        return fetch(`http://localhost:8088/employees/${id}?_expand=location`)
+            .then(res => res.json())
+    };
 
     return (
         <EmployeeContext.Provider value={{
-            employees, getEmployees, addEmployee
+            employees, getEmployees, addEmployee, getEmployeeById
         }}>
             {props.children}
         </EmployeeContext.Provider>
     )
-}
+};
