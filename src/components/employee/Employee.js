@@ -8,9 +8,9 @@ import "./Employee.css"
 //     </section>
 // )
 
-export const EmployeeCard = ({ employee }) => (
+export const EmployeeCard = ({ employee, location }) => (
     <section className="employee">
         <h3 className="employee__name">{employee.name}</h3>
-        <address className="employee__location">Location: {employee.location.name}</address>
+        <address className="employee__location">Location: {location.name}</address>
     </section>
 )

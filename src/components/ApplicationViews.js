@@ -10,14 +10,17 @@ import { Home } from "./Home.js";
 // import { LocationCard } from "./location/Location.js";
 // import { CustomerCard } from "./customer/Customer.js";
 import { AnimalProvider } from "./animal/AnimalProvider.js";
-import { AnimalList } from "./animal/AnimalList.js";
-import { AnimalForm } from "./animal/AnimalForm.js";
 import { CustomerProvider } from "./customer/CustomerProvider.js";
-import { CustomerList } from "./customer/CustomerList.js";
 import { EmployeeProvider } from "./employee/EmployeeProvider.js";
-import { EmployeeList } from "./employee/EmployeeList.js";
 import { LocationProvider } from "./location/LocationProvider.js";
+import { AnimalList } from "./animal/AnimalList.js";
+import { CustomerList } from "./customer/CustomerList.js";
+import { EmployeeList } from "./employee/EmployeeList.js";
 import { LocationList } from "./location/LocationList.js";
+import { AnimalForm } from "./animal/AnimalForm.js";
+import { EmployeeForm } from "./employee/EmployeeForm.js";
+
+
 
 
 //exact is needed on the first route for Home, otherwise it will also match the other routes, and the Home will render for every route.
@@ -53,10 +56,22 @@ export const ApplicationViews = () => {
             </AnimalProvider>
 
             <EmployeeProvider>
+                <LocationProvider>
+                        <Route exact path="/employee">
+                            <EmployeeList />
+                        </Route>
+
+                        <Route exact path="/employee/create">
+                            <EmployeeForm />
+                        </Route>
+                </LocationProvider>
+            </EmployeeProvider>
+
+            {/* <EmployeeProvider>
                 <Route exact path="/employee">
                     <EmployeeList />
                 </Route>
-            </EmployeeProvider>
+            </EmployeeProvider> */}
 
             <LocationProvider>
                 <Route exact path="/location">
