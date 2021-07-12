@@ -18,10 +18,11 @@ import "./Animal.css"
 //     </section>
 // )
 
-export const AnimalCard = ({ animal }) => (
+export const AnimalCard = ({ animal, customer, location }) => (
     <section className="animal">
         <h3 className="animal__name">{animal.name}</h3>
         <h4 className="animal__breed">Breed: {animal.breed}</h4>
-        <address className="location__address">Location: {animal.location.name}</address>
+        <address className="location__address">Location: {location.name}</address>
+        <h3 className="customer__name">{customer.name}</h3>
     </section>
 )

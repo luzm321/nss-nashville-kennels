@@ -35,11 +35,19 @@ export const ApplicationViews = () => {
             {/* <Route path="/animal">
                 <AnimalCard />
             </Route> */}
-
+            
             <AnimalProvider>
                 <Route exact path="/animal">
                     <AnimalList />
                 </Route>
+                {/* Creating the new route that will respond when the button click changes the URL to /animals/create. */}
+                <LocationProvider>
+                    <CustomerProvider>
+                        <Route exact path="/animals/create">
+                            <AnimalForm />
+                        </Route>
+                    </CustomerProvider>
+                </LocationProvider>
             </AnimalProvider>
 
             <EmployeeProvider>
