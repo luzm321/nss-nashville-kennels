@@ -18,7 +18,7 @@ export const AnimalProvider = (props) => {
         return fetch("http://localhost:8088/animals?_expand=location")
         .then(res => res.json())
         .then(setAnimals)
-    }
+    };
 
     const addAnimal = animalObj => {
         return fetch("http://localhost:8088/animals", {
@@ -29,7 +29,14 @@ export const AnimalProvider = (props) => {
             body: JSON.stringify(animalObj)
         })
         .then(getAnimals)
-    }
+    };
+
+    //Method below allows any component to get a single animal by its id, but with the location and customer objects embedded inside the response:
+    const getAnimalById = (id) => {
+        return fetch(`http://localhost:8088/animals/${id}?_expand=location&_expand=customer`)
+            .then(res => res.json())
+    };
+    
 
     /*
         You return a context provider which has the `animals` state, `getAnimals` function, and the `addAnimal` function as keys. This
@@ -38,9 +45,9 @@ export const AnimalProvider = (props) => {
     */
     return (
         <AnimalContext.Provider value={{
-            animals, getAnimals, addAnimal
+            animals, getAnimals, addAnimal, getAnimalById
         }}>
             {props.children}
         </AnimalContext.Provider>
     )
-}
+};
