@@ -3,72 +3,47 @@
 //NavBar: This is a Presentation Component. Directly expresses HTML.
 //ApplicationViews: A Controller/Router Component whose only responsibility is to control the behavior of the system and maps URLs to components.
 
-import React from "react"
-import "./Kennel.css"
-import { NavBar } from "./nav/NavBar.js"
-import { ApplicationViews } from "./ApplicationViews.js"
 
-
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
+import { ApplicationViews } from "./ApplicationViews.js";
+import { NavBar } from "./nav/NavBar.js";
+import { Login } from "./auth/Login.js";
+import { Register } from "./auth/Register.js";
+import "./Kennel.css";
 
 export const Kennel = () => (
-    <>
-        <NavBar />
-        <ApplicationViews />
-    </>
-)
+  <>
+    <Route
+      render={() => {
+        if (localStorage.getItem("kennel_customer")) {
+          return (
+            <>
+              <NavBar />
+              <ApplicationViews />
+            </>
+          );
+        } else {
+          return <Redirect to="/login" />;
+        }
+      }}
+    />
+
+    <Route path="/login">
+      <Login />
+    </Route>
+    <Route path="/register">
+      <Register />
+    </Route>
+  </>
+);
 
 
+// Here's the process that this code follows.
 
-
-// import React from "react"
-// import "./Kennel.css"
-// import { AnimalCard } from "./animal/AnimalCard.js"
-// import { EmployeeCard } from "./employee/Employee.js"
-// import { LocationCard } from "./location/Location.js"
-// import { CustomerCard } from "./customer/Customer.js"
-// import { PropsAndState } from "./PropsAndState.js"
-// import "./animal/Animal.css"
-
-//Look carefully at the <article> tag. In React, we add classes to a component with `className` instead of `class`.
-
-// export const Kennel = () => (
-//     <>
-//         <h2>Nashville Kennels</h2>
-//         <small>Loving care when you're not there.</small>
-
-//         <address className="address">
-//             <div>Visit Us at the Nashville North Location</div>
-//             <div>500 Puppy Way</div>
-//         </address>
-
-//         <PropsAndState yourName={"Luz Angelique"} />
-
-//         <h2>Animals</h2>
-//         <article className="animals">
-//             <AnimalCard />
-//             <AnimalCard />
-//             <AnimalCard />
-//         </article>
-
-//         <h2>Employees</h2>
-//         <article className="employees">
-//             <EmployeeCard />
-//             <EmployeeCard />
-//             <EmployeeCard />
-//         </article>
-
-//         <h2>Locations</h2>
-//         <article className="locations">
-//             <LocationCard />
-//             <LocationCard />
-//         </article>
-
-//         <h2>Customers</h2>
-//         <article className="customers">
-//             <CustomerCard />
-//             <CustomerCard />
-//             <CustomerCard />
-//             <CustomerCard />
-//         </article>
-//     </>
-// )
+// When the application first renders, it checks for a kennel_customer item in local storage.
+// If the item is there, the user is authenticated and the application renders.
+// If the item is not there, render the Login form instead.
+// When the user fills out the form and clicks the submit button, query the API to see if a user with the specified email already exists.
+// If the user already exists, set the kennel_customer item in local storage, and display the Dashboard.
+// If the user does not exist, alert that fact to the user.
