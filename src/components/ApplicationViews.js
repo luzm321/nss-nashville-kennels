@@ -19,6 +19,7 @@ import { EmployeeList } from "./employee/EmployeeList.js";
 import { LocationList } from "./location/LocationList.js";
 import { AnimalForm } from "./animal/AnimalForm.js";
 import { EmployeeForm } from "./employee/EmployeeForm.js";
+import { LocationForm } from "./location/LocationForm.js";
 
 
 
@@ -76,6 +77,10 @@ export const ApplicationViews = () => {
             <LocationProvider>
                 <Route exact path="/location">
                     <LocationList />
+                </Route>
+
+                <Route exact path="/location/create">
+                    <LocationForm />
                 </Route>
             </LocationProvider>
 
