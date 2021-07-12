@@ -48,8 +48,8 @@ export const EmployeeForm = () => {
 
     const locationId = parseInt(employee.locationId)
 
-    if (locationId === 0) {
-      window.alert("Please select a location")
+    if (employee.name === "" || locationId === 0) {
+      window.alert("Please provide values for both input fields.")
     } else {
       //Invoke addEmployee passing the new employee object as an argument
       //Once complete, change the url and display the employee list

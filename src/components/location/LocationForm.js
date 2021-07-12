@@ -38,16 +38,19 @@ export const LocationForm = () => {
   const handleClickSaveLocation = (event) => {
     event.preventDefault() //Prevents the browser from submitting the form
 
+    if (location.name === "" || location.address === "") {
+        window.alert("Please provide values for both input fields.")
+    } else {
       //Invoke addLocation passing the new location object as an argument
       //Once complete, change the url and display the location list
 
-    const newLocation = {
-    name: location.name,
-    address: location.address,
-    }
+        const newLocation = {
+            name: location.name,
+            address: location.address,
+        }
     addLocation(newLocation)
     .then(() => history.push("/location"))
-    
+    } 
   }
 
   return (
