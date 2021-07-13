@@ -43,8 +43,21 @@ export const AnimalProvider = (props) => {
         })
             .then(getAnimals)
     };
-    
-    
+
+    //You can use either the PUT or PATCH method to edit/update a resource/specific input field; in this method/fxn, the animal object is passed
+    //as a parameter and sent to the body to be saved to the database (this animal object that will be sent to API will eventually contain the
+    //updated data, also the animal object's id is need so that it can target the correct animal being edited)
+    const updateAnimal = (animal) => {
+        return fetch(`http://localhost:8088/animals/${animal.id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(animal)
+        })
+          .then(getAnimals)
+      };
+      
 
     /*
         You return a context provider which has the `animals` state, `getAnimals` function, and the `addAnimal` function as keys. This
@@ -53,7 +66,7 @@ export const AnimalProvider = (props) => {
     */
     return (
         <AnimalContext.Provider value={{
-            animals, getAnimals, addAnimal, getAnimalById, releaseAnimal
+            animals, getAnimals, addAnimal, getAnimalById, releaseAnimal, updateAnimal
         }}>
             {props.children}
         </AnimalContext.Provider>

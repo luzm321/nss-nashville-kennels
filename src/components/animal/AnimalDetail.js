@@ -41,6 +41,11 @@ export const AnimalDetail = () => {
       <div className="animal__location">Location: {animal.location?.name}</div> 
       <div className="animal__owner">Customer: {animal.customer?.name}</div>
       <button onClick={handleRelease}>Release Animal</button>
+      {/* In edit mode, we should have an animalId in the URL. Otherwise, it is a new animal. */}
+      <button onClick={() => {history.push(`/animal/edit/${animal.id}`)}}>
+        Edit
+      </button>
+
     </section>
   )
 };
