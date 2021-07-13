@@ -133,6 +133,7 @@ export const AnimalForm = () => {
             event.preventDefault() // Prevent browser from submitting the form and refreshing the page
             handleSaveAnimal()
           }}>
+        {/* Ternary: is there an animalId in the URL? If so, display the Save Animal button, else display the Add Animal button */}
         {animalId ? <div>Save Animal</div> : <div>Add Animal</div> }</button>
       </form>
     )
