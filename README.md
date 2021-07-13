@@ -1,3 +1,7 @@
+# nss-nashville-kennels
+
+NSS - Book 6 Nashville Kennels: React App and working with Web APIs (JSON server database).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
