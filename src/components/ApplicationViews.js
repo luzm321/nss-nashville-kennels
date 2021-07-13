@@ -55,7 +55,8 @@ export const ApplicationViews = () => {
     
     {/* The dynamic route component below matches a pattern. In the route that renders AnimalDetail, animalId is a parameter passed on the URL. */}
     {/* :animalId(\d+) is at the end of the URL. If the URL is http://localhost:3000/animal/detail/1, the value of 1 will be stored in a variable
-     named animalId. The variable can then be used inside AnimalDetail. */}
+     named animalId. The variable can then be used inside AnimalDetail. The colon allows the route to work for any animalId and /d+ is a regular expression
+     that allows you to have a pattern for code to recognize the collection of animals as numbers (d is digit number and + means 1 or more length)*/}
                         <Route exact path="/animal/detail/:animalId(\d+)">
                             <AnimalDetail />
                         </Route>
