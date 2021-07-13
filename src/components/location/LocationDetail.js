@@ -50,7 +50,7 @@ export const LocationDetail = () => {
             })
         }
 
-      <button onClick={() => {history.push(`/location/edit/${location.id}`)}}>
+      <button className="edit__btn" onClick={() => {history.push(`/location/edit/${location.id}`)}}>
         Edit
       </button>
     </section>

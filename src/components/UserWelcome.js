@@ -1,8 +1,9 @@
 // import React, { useState } from "react"
+import "./Home.css";
 
 
 
-export const PropsAndState = ({ yourName }) => {
+export const UserWelcome = ({ yourName }) => {
   // let [countClicks, setCountClicks] = useState(0) //returns an array of 2 things: countClicks variable whose initial value is 0 and setCountClicks
   //function that updates countClicks state when useState hook is invoked
 
@@ -15,9 +16,9 @@ export const PropsAndState = ({ yourName }) => {
 
   return (
     <>
-      <h3>Welcome, {yourName}!</h3>
+      <h3 class="greeting">Welcome, {yourName}!</h3>
       {/* <p>{countClicks}</p>
       <button onClick={(handleClick)}>Click Me</button> */}
     </>
   )
-}
+};

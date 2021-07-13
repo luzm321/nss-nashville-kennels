@@ -1,0 +1,127 @@
+{
+    "animals": [
+      {
+        "id": 1,
+        "name": "Doodles",
+        "breed": "Poodle",
+        "customerId": 1,
+        "locationId": 2
+      },
+      {
+        "id": 2,
+        "name": "Cindy",
+        "breed": "Maltese",
+        "customerId": 2,
+        "locationId": 1
+      },
+      {
+        "id": 3,
+        "name": "Nova",
+        "breed": "Husky",
+        "customerId": 3,
+        "locationId": 2
+      },
+      {
+        "id": 4,
+        "name": "Mango",
+        "breed": "Pomeranian",
+        "customerId": 4,
+        "locationId": 1
+      },
+      {
+        "name": "Bubbles",
+        "breed": "Chow Chow",
+        "locationId": 3,
+        "customerId": 3,
+        "id": 6
+      },
+      {
+        "id": 7,
+        "name": "Pebbles",
+        "breed": "Alaskan Malamute",
+        "locationId": 4,
+        "customerId": 5
+      }
+    ],
+    "customers": [
+      {
+        "id": 1,
+        "name": "Wanda Maximoff",
+        "address": "123 Westbrooke Drive",
+        "email": "wanda@maximoff.com"
+      },
+      {
+        "id": 2,
+        "name": "Steve Rogers",
+        "address": "1000 Avengers Way",
+        "email": "steve@rogers.com"
+      },
+      {
+        "id": 3,
+        "name": "Thor Odinson",
+        "address": "21 Asgard Realm",
+        "email": "thor@odinson.com"
+      },
+      {
+        "id": 4,
+        "name": "Carol Danvers",
+        "address": "2021 Coding Drive",
+        "email": "carol@danvers.com"
+      },
+      {
+        "name": "Peter Parker",
+        "address": "450 Queens Court",
+        "id": 5,
+        "email": "peter@parker.com"
+      }
+    ],
+    "employees": [
+      {
+        "id": 1,
+        "name": "Clark Kent",
+        "locationId": 2
+      },
+      {
+        "id": 2,
+        "name": "Lois Lane",
+        "locationId": 1
+      },
+      {
+        "id": 3,
+        "name": "Natasha Romanoff",
+        "locationId": 2
+      },
+      {
+        "id": 4,
+        "name": "Steven Strange",
+        "locationId": 4
+      },
+      {
+        "id": 5,
+        "name": "Tony Stark",
+        "locationId": 3
+      }
+    ],
+    "locations": [
+      {
+        "id": 1,
+        "name": "Nashville North",
+        "address": "8422 Johnson Pike"
+      },
+      {
+        "id": 2,
+        "name": "Nashville South",
+        "address": "209 Emory Drive"
+      },
+      {
+        "id": 3,
+        "name": "Nashville NorthWest",
+        "address": "521 Animal Blvd"
+      },
+      {
+        "name": "Nashville SouthEast",
+        "address": "632 Pet Lane",
+        "id": 4
+      }
+    ]
+  }

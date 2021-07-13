@@ -9,12 +9,12 @@ export const AnimalSearch = () => {
   const { setSearchTerms } = useContext(AnimalContext)
 
   return (
-    <>
-      Animal search:
+    <div className="searchBar">
+      <div className="search">Animal search:</div>
       <input type="text"
         className="input--wide"
         onKeyUp={(event) => setSearchTerms(event.target.value)}
         placeholder="Search for an animal... " />
-    </>
+    </div>
   )
 };
