@@ -6,12 +6,12 @@ import { useParams, useHistory } from "react-router-dom";
 
 //Component responsible for showing all the details of an animal:
 export const AnimalDetail = () => {
-  const { getAnimalById } = useContext(AnimalContext)
+  const { getAnimalById, releaseAnimal } = useContext(AnimalContext)
 
 	const [animal, setAnimal] = useState({})
 
-	const {animalId} = useParams();
-	const history = useHistory();
+	const {animalId} = useParams(); //useParams from react-router-dom allows the app to read a parameter from the URL with dynamic routing and returns
+  // an object with all dynamic URL parameters as key:value pairs. animalId is the destructured object variable holding the value of number in URL.
 
   useEffect(() => {
     console.log("useEffect", animalId)
@@ -21,6 +21,16 @@ export const AnimalDetail = () => {
     })
     }, [])
 
+
+  const history = useHistory();
+
+  const handleRelease = () => {
+    releaseAnimal(animal.id)
+      .then(() => {
+        history.push("/animal")
+      })
+  };
+
   return (
     <section className="animal">
       <h3 className="animal__name">{animal.name}</h3>
@@ -28,8 +38,9 @@ export const AnimalDetail = () => {
       {/* What's up with the question mark???? See below.*/}
       {/* Immediate properties of an empty object will not break, however nested properties of an empty object will. Use Optional chaining (?.) 
       //operator to prevent nested values from breaking the code. Try with and without the ?. */}
-      <div className="animal__location">Location: {animal.location?.name}</div>
+      <div className="animal__location">Location: {animal.location?.name}</div> 
       <div className="animal__owner">Customer: {animal.customer?.name}</div>
+      <button onClick={handleRelease}>Release Animal</button>
     </section>
   )
 };
@@ -42,3 +53,4 @@ export const AnimalDetail = () => {
 // undefined if the given function does not exist. This results in shorter and simpler expressions when accessing chained properties when the 
 // possibility exists that a reference may be missing. It can also be helpful while exploring the content of an object when there's no known guarantee
 // as to which properties are required.
+//If animal has a location and customer, display their names, if these properties do not exist, do not break the code
