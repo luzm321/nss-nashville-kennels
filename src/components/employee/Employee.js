@@ -7,7 +7,7 @@ export const EmployeeCard = ({ employee }) => (
     <section className="employee">
         <h3 className="employee__name">
           <Link to={`/employee/detail/${employee.id}`}>
-            { employee.name }
+            {employee.name}
           </Link>
         </h3>
     </section>
