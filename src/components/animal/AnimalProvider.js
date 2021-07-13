@@ -13,6 +13,10 @@ export const AnimalProvider = (props) => {
     //The useState() hook defines a variable that holds the state of the component(animals), and a function that updates/modifies it(setAnimals).
     //The initial value of the animals variable is an empty array
     const [animals, setAnimals] = useState([])
+    //Since the goal of code below is to search the animals for specific ones, and what the user types into a search field is considered state, 
+    //the common component is the animal provider and is therefore the place to store the search state.
+    const [ searchTerms, setSearchTerms ] = useState("")
+
 
     const getAnimals = () => {
         return fetch("http://localhost:8088/animals?_expand=location&_expand=customer")
@@ -66,7 +70,7 @@ export const AnimalProvider = (props) => {
     */
     return (
         <AnimalContext.Provider value={{
-            animals, getAnimals, addAnimal, getAnimalById, releaseAnimal, updateAnimal
+            animals, getAnimals, addAnimal, getAnimalById, releaseAnimal, updateAnimal, searchTerms, setSearchTerms
         }}>
             {props.children}
         </AnimalContext.Provider>
