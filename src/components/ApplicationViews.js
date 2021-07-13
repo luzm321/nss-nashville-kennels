@@ -23,6 +23,7 @@ import { LocationForm } from "./location/LocationForm.js";
 import { CustomerForm } from "./customer/CustomerForm.js";
 import { AnimalDetail } from "./animal/AnimalDetail.js";
 import { EmployeeDetail } from "./employee/EmployeeDetail.js";
+import { LocationDetail } from "./location/LocationDetail.js";
 
 
 
@@ -91,6 +92,10 @@ export const ApplicationViews = () => {
             <LocationProvider>
                 <Route exact path="/location">
                     <LocationList />
+                </Route>
+
+                <Route exact path="/location/detail/:locationId(\d+)">
+                    <LocationDetail />
                 </Route>
 
                 <Route exact path="/location/create">
