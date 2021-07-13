@@ -28,6 +28,9 @@ export const EmployeeDetail = () => {
       {/* Immediate properties of an empty object will not break, however nested properties of an empty object will. Use Optional chaining (?.) 
       //operator to prevent nested values from breaking the code. Try with and without the ?. */}
       <div className="employee__location">Location: {employee.location?.name}</div>
+      <button onClick={() => {history.push(`/employee/edit/${employee.id}`)}}>
+        Edit
+      </button>
     </section>
   )
 };
