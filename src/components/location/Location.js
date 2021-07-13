@@ -11,6 +11,8 @@ export const LocationCard = ({ location }) => (
             </Link>
         </h3>
     <div className="location__address">{location.address}</div>
+    <div className="location__employeeLength">Employees: {location.employees.length}</div>
+    <div className="location__animalLength">Animals: {location.animals.length}</div>
     </section>
 );
 
