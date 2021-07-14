@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
+import { Login } from "../auth/Login.js";
+import { Route, Redirect, useHistory } from "react-router-dom";
 
 
 
@@ -8,6 +10,8 @@ import "./NavBar.css";
 //It will render a hyperlink in the DOM and when clicked, it will change the URL in the browser to the value of the to attribute.
 
 export const NavBar = () => {
+    const history = useHistory()
+
 
     let [isActive, setIsActive] = useState("home");
 
@@ -23,6 +27,12 @@ export const NavBar = () => {
         // or....
         // return isActive === navLocation ? "active" : ""
     };
+
+    const handleLogout = (e) => {
+        e.preventDefault()
+        localStorage.removeItem("kennel_customer")
+        history.push("/login")
+    }
 
     return (
         <ul className="navbar">
@@ -45,6 +55,10 @@ export const NavBar = () => {
             <li className={`navbar__item ${checkNavState("employees")}`}
               onClick={() => setIsActive("employees")}>
                 <Link className="navbar__link" to="/employee">Employees</Link>
+            </li>
+            <li className="navbar__item" 
+              onClick={(e) => {handleLogout(e)}}>
+                <Link className="navbar__link" to="/login">Logout</Link>
             </li>
         </ul>
     )

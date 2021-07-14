@@ -6,7 +6,7 @@ import { useParams, useHistory } from "react-router-dom";
 
 //Component responsible for showing all the details of a location:
 export const LocationDetail = () => {
-  const { getLocationById } = useContext(LocationContext)
+  const { getLocationById, removeLocation } = useContext(LocationContext)
 
 	const [location, setLocation] = useState({})
 
@@ -20,6 +20,14 @@ export const LocationDetail = () => {
       setLocation(response)
     })
     }, [])
+
+
+  const handleRemove = () => {
+    removeLocation(location.id)
+      .then(() => {
+        history.push("/location")
+      })
+  };
 
   return (
     <section className="location">
@@ -49,7 +57,7 @@ export const LocationDetail = () => {
                 )
             })
         }
-
+      <button className="remove__btn" onClick={handleRemove}>Remove Location</button>
       <button className="edit__btn" onClick={() => {history.push(`/location/edit/${location.id}`)}}>
         Edit
       </button>
