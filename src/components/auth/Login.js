@@ -1,7 +1,7 @@
-import React, { useRef } from "react"
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom"
-import "./Login.css"
+import { useHistory } from "react-router-dom";
+import "./Login.css";
 
 
 export const Login = props => {
@@ -39,10 +39,10 @@ export const Login = props => {
 
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Nashville Kennels</h1>
-                    <h2>Please sign in</h2>
+                    <h1 className="appHeader">Nashville Kennels</h1>
+                    <h2 className="sign_in">Please Sign In</h2>
                     <fieldset>
-                        <label htmlFor="inputEmail"> Email address </label>
+                        <label className="email" htmlFor="inputEmail"> Email Address: </label>
                         <input ref={email} type="email"
                             id="email"
                             className="form-control"
@@ -50,7 +50,7 @@ export const Login = props => {
                             required autoFocus />
                     </fieldset>
                     <fieldset>
-                        <button type="submit">
+                        <button className="login" type="submit">
                             Sign in
                         </button>
                     </fieldset>

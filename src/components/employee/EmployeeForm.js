@@ -76,7 +76,7 @@ export const EmployeeForm = () => {
 
     return (
       <form className="employeeForm">
-        <h2 className="employeeForm__title">New Employee</h2>
+        <h2 className="employeeForm__title">{employeeId ? "Edit Employee" : "Add Employee"}</h2>
         <fieldset>
           <div className="form-group">
             <label className="employeeName" htmlFor="employeeName">Employee name: </label>

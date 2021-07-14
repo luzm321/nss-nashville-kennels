@@ -6,7 +6,7 @@ import { useParams, useHistory } from "react-router-dom";
 
 //Component responsible for showing all the details of an animal:
 export const EmployeeDetail = () => {
-  const { getEmployeeById } = useContext(EmployeeContext)
+  const { getEmployeeById, removeEmployee } = useContext(EmployeeContext)
 
 	const [employee, setEmployee] = useState({})
 
@@ -21,6 +21,13 @@ export const EmployeeDetail = () => {
     })
     }, [])
 
+  const handleRemoveEmployee = () => {
+    removeEmployee(employee.id)
+      .then(() => {
+        history.push("/employee")
+      })
+  };
+
   return (
     <section className="employee">
       <h3 className="employee__name">{employee.name}</h3>
@@ -28,6 +35,7 @@ export const EmployeeDetail = () => {
       {/* Immediate properties of an empty object will not break, however nested properties of an empty object will. Use Optional chaining (?.) 
       //operator to prevent nested values from breaking the code. Try with and without the ?. */}
       <div className="employee__location">Location: {employee.location?.name}</div>
+      <button className="remove__btn" onClick={handleRemoveEmployee}>Remove Employee</button>
       <button className="edit__btn" onClick={() => {history.push(`/employee/edit/${employee.id}`)}}>
         Edit
       </button>

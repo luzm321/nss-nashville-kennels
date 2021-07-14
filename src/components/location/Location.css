@@ -68,6 +68,7 @@ background-color: rgb(43, 41, 41);
     width: 25%;
     background-color:rgb(238, 218, 194);
     border-radius: 20px;
+    margin-left: 2em;
 }
 
 .locationAddress {
@@ -109,4 +110,16 @@ background-color: rgb(43, 41, 41);
     width: 10%;
     cursor: pointer;
     margin: 2em 0 2em 0em;
+}
+
+.remove__btn {
+    color: black;
+    background-color: #5bb1c7;
+    border-radius: 50px;
+    font-size: 20px;
+    padding: 5px;
+    width: 12%;
+    cursor: pointer;
+    margin: 2em 0 2em 0em;
+    margin-right: 20px;
 }

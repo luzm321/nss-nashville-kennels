@@ -37,6 +37,7 @@ export const AnimalForm = () => {
     }
 
     const handleSaveAnimal = () => {
+      // event.preventDefault() // Prevent browser from submitting the form and refreshing the page
       if (parseInt(animal.locationId) === 0 || parseInt(animal.customerId) === 0) {
           window.alert("Please select a location or a customer.")
       } else {
@@ -82,7 +83,7 @@ export const AnimalForm = () => {
 
     return (
       <form className="animalForm">
-        <h2 className="animalForm__title">New Animal</h2>
+        <h2 className="animalForm__title">{animalId ? "Edit Animal" : "Add Animal"}</h2>
         <fieldset>
           <div className="form-group-animal">
             <label className="animal_label" htmlFor="animalName">Animal name: </label>
